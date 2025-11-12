@@ -1,0 +1,7 @@
+version: '3.9'
+services:
+  app:
+    image: siyam05/nodeapp:895b39014862fe4aa0585f60e494b9bc179ac9aa
+    ports:
+      - "3000:3000"
+    restart: unless-stopped

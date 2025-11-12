@@ -35,3 +35,31 @@ jobs:
           format: 'table'
           exit-code: '0'
           severity: 'CRITICAL,HIGH'
+
+
+  deploy-to-production:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: checkout the code 
+        uses: actions/checkout@v5
+      
+      - name: copy docker-compose to server
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST}}
+          username: ${{ secrets.SSH_USER}}
+          password: ${{ secrets.SSH_PASSWORD}}
+          port: "docker-compose.prod.yml"
+          target: "~/NODEJSCI/"
+
+      - name: deploy via sss
+        uses: appleboy/scp-action@v1
+        with:
+          host: ${{ secrets.SSH_HOST}}
+          username: ${{ secrets.SSH_USER}}
+          password: ${{ secrets.SSH_PASSWORD}}
+          script: |
+            cd ~~/NODEJSCI
+            docker compose pull
+            docker compose up -d 
