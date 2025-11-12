@@ -61,5 +61,4 @@ jobs:
           password: ${{ secrets.SSH_PASSWORD}}
           script: |
             cd ~/NODEJSCI
-            docker compose pull
             docker compose up -d 
