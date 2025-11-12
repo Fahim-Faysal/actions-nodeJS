@@ -60,6 +60,7 @@ jobs:
           username: ${{ secrets.SSH_USER}}
           password: ${{ secrets.SSH_PASSWORD}}
           script: |
+            export IMAGE_TAG=${{ github.sha }}
             cd ~/NODEJSCI
             docker compose pull
             docker compose up -d 
