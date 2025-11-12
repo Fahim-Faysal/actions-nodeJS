@@ -38,6 +38,7 @@ jobs:
 
 
   deploy-to-production:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
