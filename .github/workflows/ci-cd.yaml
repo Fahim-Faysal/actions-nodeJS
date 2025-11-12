@@ -50,7 +50,6 @@ jobs:
           host: ${{ secrets.SSH_HOST}}
           username: ${{ secrets.SSH_USER}}
           password: ${{ secrets.SSH_PASSWORD}}
-          port: "docker-compose.prod.yml"
           target: "~/NODEJSCI/"
 
       - name: deploy via sss
