@@ -54,7 +54,7 @@ jobs:
           target: "~/NODEJSCI/"
 
       - name: deploy via sss
-        uses: appleboy/scp-action@v1
+        uses: appleboy/ssh-action@v0.1.10
         with:
           host: ${{ secrets.SSH_HOST}}
           username: ${{ secrets.SSH_USER}}
